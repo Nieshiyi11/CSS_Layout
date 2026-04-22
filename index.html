@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页——练习CSS布局</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--导航栏-->
+    <header class="nav">
+        <!--1. 网站Logo-->
+        <a href="#" class="Logo">Mysite</a> <!-- href="#" 是一个占位符链接，意思是"点了不跳转到任何页面，留在当前页面"，因为我们只有一个index.html-->
+        <!--2. 搜索栏-->
+        <div class="search-box">
+            <input type="text" placeholder="搜索...">
+        </div>
+        <!--3. 导航索引-->
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">发现更多</a>
+            <a href="#">联系我们</a>
+        </nav>
+    </header>
+
+
+    <!--轮播图-->
+    <section class="banner">
+        <h2>欢迎来到Mysite!</h2>
+        <p>这是一个CSS布局练习项目...</p>
+    </section>
+
+
+    <!--主体区域：内容+侧边栏-->
+    <!--div当一个FlexBox容器-->
+    <div class="main-wrapper">
+        <!--1. 主要内容区域-->
+        <main class="content">
+            <h2>主要内容区域</h2>
+            <!--卡片后面再加-->
+        </main>
+        <!--2. 侧边栏-->
+        <aside>
+            <h3>侧边栏</h3>
+            <!--侧边栏内容后面再加-->
+        </aside>
+    </div>
+
+
+    <!--页脚-->
+    <footer class="footer">
+        <p>© 2026 MySite. Coding With Eleven.</p>
+    </footer>
+</body>
+</html>
+
+
+
+<!--
+├── 是导航 → <nav>
+├── 是页头 → <header>
+├── 是页脚 → <footer>
+├── 是主内容 → <main>
+├── 是侧边栏 → <aside>
+├── 是一个独立的内容区块 → <section>
+├── 是一篇文章 → <article>
+└── 只是为了布局，没有实际含义 → <div>
+-->
