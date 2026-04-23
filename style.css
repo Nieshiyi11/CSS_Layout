@@ -93,7 +93,7 @@ a{
 
 /* ============== 轮播图 Banner ============== */
 .banner{
-    width: 100%;  /* 宽度撑满浏览器 */
+    width: 100%;  /* 宽度撑满浏览器屏幕 */
     height: 300px;
     background: linear-gradient(135deg, #4a90d9, #7b68ee);
     display: flex;
@@ -113,19 +113,30 @@ a{
 
 
 /* ============== 主体区域 ============== */
+/* 1. 容器盒子 */
 .main-wrapper {
     max-width: 1200px;
     margin: 20px auto;  /* 上下20px，左右auto水平居中 */
     padding: 0 20px;
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Flexbox 容器里子元素之间的间距。在这里就是<main>和<aside>间隔20px*/
 }
 /*
 ←──────────── 浏览器窗口 1920px ──────────────→
 │    空白     ┌── 内容最宽1200px ──┐    空白   │
-│  ←  auto  → │                   │ ← auto → │
-│             └───────────────────┘          │
+│  ←  auto  → │                   │ ← auto →  │
+│             └───────────────────┘           │
 */
+/*
+┌──────────────────┐ 20px ┌─────────┐
+│                  │←────→│         │
+│     content      │ gap  │ sidebar │
+│                  │      │         │
+└──────────────────┘      └─────────┘
+如果不用gap，就得给其中一个盒子单独加margin，比如margin-right: 20px，效果一样，但写法更麻烦。
+*/
+
+/* 2. 主体内容区域 */
 .content{
     flex: 1; /* 占满剩余空间 */
     background-color: #fff;
@@ -134,6 +145,7 @@ a{
     padding: 24px;
     min-height: 400px;
 }
+/* 3. 侧边栏 */
 .sidebar{
     width: 280px;
     flex-shrink: 0;/* 不被压缩 */
@@ -141,4 +153,95 @@ a{
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 24px;
+}
+
+
+/* ============== 页脚 ============== */
+.footer{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /*注意写文字居中text-align而不是items-align*/
+    color: #999;
+    font-size: 14px;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+/* ============== 卡片网格 ============== */
+.content h2{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+.card-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);   /* 2列等宽 */
+    gap: 16px; /* 每列间距16px */
+}
+.card{
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;  /*div(card-img)盒子、h3盒子、p盒子之间的间距为20px*/
+    transition: all 0.3s;
+}
+.card:hover{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);   /* 悬停时出现阴影 */
+    transform: translateY(-2px);                   /* 微微上移 */
+}
+.card-img {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+.card h3{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+.card p{
+    font-size: 14px;
+    color: #888;
+}
+
+
+/* ============== 侧边栏 =============== */
+/* 热门搜索 */
+.sidebar-block{
+    margin-bottom: 24px;
+}
+.sidebar-block h3{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #4a90d9;
+}
+.sidebar-block ul{
+    list-style: none;  /* 去掉默认的小圆点 */
+}
+.sidebar-block li{
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;   /* 每条之间加细线 */
+}
+.sidebar-block li a{
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s;
+}
+.sidebar-block li a:hover{
+    color: #4a90d9;
+}
+
+/* 标签云 */
+.tag-cloud{
+    display: flex;
+    flex-wrap: wrap;  /* 放不下自动换行 */
+    gap: 8px;  /* 每个标签之间间隔8px */
+}
+.tag{
+    padding: 4px 12px;
+    background-color: #f0f4ff;
+    color: #4a90d9;
+    border-radius: 12px;
+    font-size: 12px;
 }
