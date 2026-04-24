@@ -161,7 +161,8 @@ a{
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center; /*注意写文字居中text-align而不是items-align*/
+    text-align: center; /*注意写文字居中text-align而不是aligin-items*/
+    /*align-items或者justify-content都要搭配Flex或者Grid布局才会生效*/
     color: #999;
     font-size: 14px;
     border-top: 1px solid #e0e0e0;
